@@ -181,7 +181,7 @@ local becomebarry = fe:CreateButton({
 local localplayer = window:CreateTab("LocalPlayer")
 local section_main_localplayer = localplayer:CreateSection("Main")
 
-local slow_barry = fe:CreateButton({
+local slow_barry = localplayer:CreateButton({
     Name = "Slow Barry/Garry",
     Callback = function()
         
