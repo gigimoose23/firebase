@@ -4,9 +4,10 @@ local target
 local stagetotp
 local stagetoset
 local guardspeedtoset
-if game.Players.LocalPlayer.GodMode then
-    game.Players.LocalPlayer.GodMode:Destroy()
-end
+
+pcall(function() game.Players.LocalPlayer.GodMode:Destroy() end)
+
+
 
 local raycer = loadstring(game:HttpGet("https://raw.githubusercontent.com/gigimoose23/firebase/main/rayfieldmodified.lua"))()
 
@@ -237,7 +238,7 @@ local slow_barry = localplayer:CreateButton({
  })
  
  local fly = localplayer:CreateButton({
-    Name = "Fly (G to toggle, reset when you die otherwise it will glitch!)",
+    Name = "Fly (G to toggle, reset when you die otherwise it will glitch! Credits to random guy on pastebin)",
     Callback = function()
         
         repeat wait() 
@@ -324,6 +325,12 @@ Fly()
  })
  
  
- 
+ local playeresp = localplayer:CreateButton({
+    Name = "Player Esp (Script is Unnamed ESP)",
+    Callback = function()
+        
+        pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))() end)
+    end,
+ })
  
  
