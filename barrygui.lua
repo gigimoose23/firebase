@@ -4,6 +4,10 @@ local target
 local stagetotp
 local stagetoset
 local guardspeedtoset
+if game.Players.LocalPlayer.GodMode then
+    game.Players.LocalPlayer.GodMode:Destroy()
+end
+
 local raycer = loadstring(game:HttpGet("https://raw.githubusercontent.com/gigimoose23/firebase/main/rayfieldmodified.lua"))()
 
 
