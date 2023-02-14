@@ -358,4 +358,23 @@ Fly()
     end,
  })
  
+
+ local other = window:CreateTab("Other")
+local section_main_other = other:CreateSection("Main")
+
+
+ local vape = otber:CreateButton({
+   Name = "Vape V4",
+   Callback = function()
+       
+       pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true'))() end)
+   end,
+})
  
+local infyield = otber:CreateButton({
+   Name = "Inf Yield",
+   Callback = function()
+       
+       pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))() end)
+   end,
+})
