@@ -84,28 +84,31 @@ local killthatplr = fe:CreateButton({
    Name = "Kill that player (OP)",
    Callback = function()
        if game.Players[target] then
-           --Variables
-            local sendcharacterRemote = game.ReplicatedStorage.CharacterMorphs.SendCharacter
-            local plr = game.Players.LocalPlayer
-            local stagechangeremote = game.ReplicatedStorage.StageChange
-            stagerespawnval = plr.leaderstats.Stage.Value
-        
-        
-        
-            --SendCharacter
-            sendcharacterRemote:FireServer(1)
-            wait(0.5)
-            plr.PlayerGui.BarryGui:Destroy()
-        
-            --Tp to  plr and kill them (cframe)
-            plr.Character.HumanoidRootPart.CFrame = game.Players[target].Character.HumanoidRootPart.CFrame
+           game.ReplicatedStorage.ItemModels.VipRemotes.r9:FireServer()
+wait(1)
+local activatescript = game.Players.LocalPlayer.Backpack:WaitForChild("GodBlaster"):WaitForChild("Activate")
 
-            wait(0.4)
-        
-            --Kill localplayer
-            stagechangeremote:FireServer(stagerespawnval)
-            plr.SpawnVal.Value = stagerespawnval
-            plr.Character:Destroy()
+local blastsend = activatescript:WaitForChild("send") 
+blastsend:FireServer()
+wait(0.5)
+local beam = game.Players.LocalPlayer.Character.BeamBlaster
+beam.weldo.las:Destroy()
+beam.light1:Destroy()
+
+local player = game.Players.LocalPlayer 
+local backpack = player.Backpack 
+
+for _, child in ipairs(backpack:GetChildren()) do
+    child:Destroy() 
+end
+
+
+player.Character.HumanoidRootPart.CFrame = game.Players[target].Character.HumanoidRootPart.CFrame
+
+wait(0.5)
+
+player.Character:Destroy()
+
        else
            
                 
@@ -359,22 +362,50 @@ Fly()
  })
  
 
- local other = window:CreateTab("Other")
+local other = window:CreateTab("Other")
 local section_main_other = other:CreateSection("Main")
 
 
- local vape = otber:CreateButton({
-   Name = "Vape V4",
-   Callback = function()
-       
-       pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true'))() end)
-   end,
-})
  
-local infyield = otber:CreateButton({
+local infyield = other:CreateButton({
    Name = "Inf Yield",
    Callback = function()
        
        pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))() end)
+   end,
+})
+
+
+local killall = fe:CreateButton({
+   Name = "KILL EVERYONE!",
+   Callback = function()
+        game.ReplicatedStorage.ItemModels.VipRemotes.r9:FireServer()
+wait(1)
+local activatescript = game.Players.LocalPlayer.Backpack:WaitForChild("GodBlaster"):WaitForChild("Activate")
+
+local blastsend = activatescript:WaitForChild("send") 
+blastsend:FireServer()
+wait(0.5)
+local beam = game.Players.LocalPlayer.Character.BeamBlaster
+beam.weldo.las:Destroy()
+beam.light1:Destroy()
+
+local player = game.Players.LocalPlayer 
+local backpack = player.Backpack 
+
+for _, child in ipairs(backpack:GetChildren()) do
+    child:Destroy() 
+end
+
+
+local players = game:GetService("Players")
+
+for i, player in pairs(players:GetPlayers()) do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame
+    wait(0.7)
+end
+
+player.Character:Destroy()
+        
    end,
 })
