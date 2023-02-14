@@ -181,6 +181,31 @@ local becomebarry = fe:CreateButton({
 })
 
 
+
+local killnearplrs = fe:CreateButton({
+   Name = "KILL NEARBY PLAYERS (Reset to stop)",
+   Callback = function()
+        game.ReplicatedStorage.ItemModels.VipRemotes.r9:FireServer()
+wait(1)
+local activatescript = game.Players.LocalPlayer.Backpack:WaitForChild("GodBlaster"):WaitForChild("Activate")
+
+local blastsend = activatescript:WaitForChild("send") 
+blastsend:FireServer()
+wait(0.5)
+local beam = game.Players.LocalPlayer.Character.BeamBlaster
+beam.weldo.las:Destroy()
+beam.light1:Destroy()
+
+local player = game.Players.LocalPlayer 
+local backpack = player.Backpack 
+
+for _, child in ipairs(backpack:GetChildren()) do
+    child:Destroy() 
+end
+
+        
+   end,
+})
 --Localplayer
 
 local localplayer = window:CreateTab("LocalPlayer")
@@ -238,7 +263,7 @@ local slow_barry = localplayer:CreateButton({
  })
  
  local fly = localplayer:CreateButton({
-    Name = "Fly (G to toggle, reset when you die otherwise it will glitch! Credits to random guy on pastebin)",
+    Name = "Fly (G to toggle, reset when you die otherwise it will glitch! Not my script)",
     Callback = function()
         
         repeat wait() 
