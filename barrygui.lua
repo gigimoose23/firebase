@@ -4,6 +4,7 @@ local target
 local stagetotp
 local stagetoset
 local guardspeedtoset
+local stagetotp2
 
 pcall(function() game.Players.LocalPlayer.GodMode:Destroy() end)
 
@@ -157,7 +158,7 @@ local becomebarry = fe:CreateButton({
         sendcharacterRemote:FireServer(1)
         wait(0.5)
         plr.PlayerGui.BarryGui:Destroy()
-	    stagetotp = "p" .. plr.SpawnVal.Value
+	stagetotp = "p" .. plr.SpawnVal.Value
         plr.Character.HumanoidRootPart.CFrame = game.Workspace.LocalObjects.spawns[stagetotp].go.CFrame
         plr.Character.Humanoid.JumpPower = 50
         
@@ -376,36 +377,22 @@ local infyield = other:CreateButton({
 })
 
 
-local killall = fe:CreateButton({
-   Name = "KILL EVERYONE!",
+
+
+
+local invisibiliy = fe:CreateButton({
+   Name = "Invisibility (FE)",
    Callback = function()
-        game.ReplicatedStorage.ItemModels.VipRemotes.r9:FireServer()
-wait(1)
-local activatescript = game.Players.LocalPlayer.Backpack:WaitForChild("GodBlaster"):WaitForChild("Activate")
-
-local blastsend = activatescript:WaitForChild("send") 
-blastsend:FireServer()
-wait(0.5)
-local beam = game.Players.LocalPlayer.Character.BeamBlaster
-beam.weldo.las:Destroy()
-beam.light1:Destroy()
-
-local player = game.Players.LocalPlayer 
-local backpack = player.Backpack 
-
-for _, child in ipairs(backpack:GetChildren()) do
-    child:Destroy() 
-end
-
-
-local players = game:GetService("Players")
-
-for i, player in pairs(players:GetPlayers()) do
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame
-    wait(0.7)
-end
-
-player.Character:Destroy()
-        
+        local sendcharacterRemote = game.ReplicatedStorage.CharacterMorphs.SendCharacter
+        local plr = game.Players.LocalPlayer
+	
+	sendcharacterRemote:FireServer(1)
+	wait(0.45)
+	plr.body:Destroy()
+	plr.go:Destroy()
+	plr.Head.NameBill:Destroy()
+        plr.PlayerGui.BarryGui:Destroy()
+	stagetotp2 = "p" .. plr.SpawnVal.Value
+        plr.Character.HumanoidRootPart.CFrame = game.Workspace.LocalObjects.spawns[stagetotp].go.CFrame
    end,
 })
