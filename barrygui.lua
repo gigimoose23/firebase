@@ -383,16 +383,23 @@ local infyield = other:CreateButton({
 local invisibiliy = fe:CreateButton({
    Name = "Invisibility (FE)",
    Callback = function()
-        local sendcharacterRemote = game.ReplicatedStorage.CharacterMorphs.SendCharacter
+        
+
+
+local sendcharacterRemote = game.ReplicatedStorage.CharacterMorphs.SendCharacter
         local plr = game.Players.LocalPlayer
 	
 	sendcharacterRemote:FireServer(1)
 	wait(0.45)
-	plr.body:Destroy()
-	plr.go:Destroy()
-	plr.Head.NameBill:Destroy()
+	plr.Character.body:Destroy()
+	plr.Character.go:Destroy()
+	plr.Character.Head.NameBill:Destroy()
+	
+plr.Character.Head.walksound:Destroy()
+	
+plr.Character.Humanoid.JumpPower = 50
         plr.PlayerGui.BarryGui:Destroy()
 	stagetotp2 = "p" .. plr.SpawnVal.Value
-        plr.Character.HumanoidRootPart.CFrame = game.Workspace.LocalObjects.spawns[stagetotp].go.CFrame
+        plr.Character.HumanoidRootPart.CFrame = game.Workspace.LocalObjects.spawns[stagetotp2].go.CFrame
    end,
 })
