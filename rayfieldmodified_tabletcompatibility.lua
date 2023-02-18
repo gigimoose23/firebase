@@ -2289,31 +2289,34 @@ end
 
 
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "MyGui"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-
--- Create a Frame in the corner of the screen
+-- Create a Frame
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 100, 0, 50)
-frame.Position = UDim2.new(1, -110, 1, -60)
-frame.BackgroundTransparency = 0.5
+frame.Name = "MyFrame"
+frame.Position = UDim2.new(1, -100, 1, -100)
+frame.Size = UDim2.new(0, 100, 0, 100)
 frame.BackgroundColor3 = Color3.new(1, 1, 1)
 frame.Visible = true
-frame.Parent = screenGui
+frame.Parent = gui
 
--- Create a button inside the Frame
-local button = Instance.new("TextButton")
-button.Text = "TOGGLE GUI"
-button.Size = UDim2.new(1, 0, 1, 0)
-button.Position = UDim2.new(0, 0, 0, 0)
-button.Parent = frame
+-- Create a Toggle button
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "ToggleButton"
+toggleButton.Position = UDim2.new(0, 0, 0, 0)
+toggleButton.Size = UDim2.new(1, 0, 1, 0)
+toggleButton.BackgroundColor3 = Color3.new(1, 0, 0)
+toggleButton.Text = "TOGGLE GUI"
+toggleButton.Parent = frame
 
--- Create functions to show/hide the GUI
 
 
--- Toggle GUI visibility when the button is clicked
-button.MouseButton1Click:Connect(function()
+-- Toggle function
+local Hidden = false
+toggleButton.MouseButton1Click:Connect(function()
     if Hidden then
         Hidden = false
         Unhide()
@@ -2321,7 +2324,14 @@ button.MouseButton1Click:Connect(function()
         Hidden = true
         Hide()
     end
+    
+    -
 end)
+
+
+
+
+
 
 
 return RayfieldLibrary
