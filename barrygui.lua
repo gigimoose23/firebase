@@ -403,3 +403,29 @@ plr.Character.Humanoid.JumpPower = 50
         plr.Character.HumanoidRootPart.CFrame = game.Workspace.LocalObjects.spawns[stagetotp2].go.CFrame
    end,
 })
+
+
+local setfirst = fe:CreateButton({
+   Name = "SET YOURSELF FIRST FOR LEADERBOARD (FE)",
+   Callback = function()
+        
+
+	
+	if game.Players.LocalPlayer.infopack.hardmode.Value == true then
+		local args = {
+    	    	     [1] = 1.e-07
+		}
+
+		game:GetService("ReplicatedStorage").TimeEventHard:FireServer(unpack(args))
+	else
+	local args = {
+    	    	     [1] = 1.e-07
+		}
+
+		game:GetService("ReplicatedStorage").TimeEventEasy:FireServer(unpack(args))
+	end
+
+	
+
+   end,
+})
