@@ -429,3 +429,36 @@ local setfirst = fe:CreateButton({
 
    end,
 })
+
+
+ local barrykill = localplayer:CreateButton({
+    Name = "KILL BARRY!",
+    Callback = function()
+        
+        game.Workspace.Policeman1.guard.Dummy.zomb.Value.Value = false
+
+game.Workspace.Policeman2.guard.Dummy.zomb.Value.Value = false
+
+    end,
+ })
+
+
+ local garrykill = localplayer:CreateButton({
+    Name = "KILL GARRY!",
+    Callback = function()
+        
+        game.Workspace.DinnerChef.health.Value = 0
+    end,
+ })
+
+
+local mechkill = localplayer:CreateButton({
+    Name = "KILL BARRY'S MECH!",
+    Callback = function()
+        
+        
+game.Workspace.MechBoss.health.Value = 0
+game.Workspace.MechBoss.meshleftarm.health.Value = 0
+game.Workspace.MechBoss.meshrightarm.health.Value = 0
+    end,
+ })
