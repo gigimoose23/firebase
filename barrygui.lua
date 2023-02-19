@@ -411,7 +411,7 @@ local setfirst = fe:CreateButton({
         
 
 	
-	if game.Players.LocalPlayer.infopack.hardmode.Value == true then
+	if game.Players.LocalPlayer.infopack.hard.Value == true then
 		local args = {
     	    	     [1] = 1.e-07
 		}
