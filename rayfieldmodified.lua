@@ -118,32 +118,9 @@ local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
 
 
 
-if gethui then
-	Rayfield.Parent = gethui()
-elseif syn.protect_gui then 
-	syn.protect_gui(Rayfield)
-	Rayfield.Parent = CoreGui
-elseif CoreGui:FindFirstChild("RobloxGui") then
-	Rayfield.Parent = CoreGui:FindFirstChild("RobloxGui")
-else
-	Rayfield.Parent = CoreGui
-end
 
-if gethui then
-	for _, Interface in ipairs(gethui():GetChildren()) do
-		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = false
-			Interface.Name = "Rayfield-Old"
-		end
-	end
-else
-	for _, Interface in ipairs(CoreGui:GetChildren()) do
-		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = false
-			Interface.Name = "Rayfield-Old"
-		end
-	end
-end
+
+
 
 -- Object Variables
 
