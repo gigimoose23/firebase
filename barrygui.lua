@@ -10,7 +10,7 @@ pcall(function() game.Players.LocalPlayer.GodMode:Destroy() end)
 
 
 
-local raycer = loadstring(game:HttpGet("https://raw.githubusercontent.com/gigimoose23/firebase/main/rayfieldmodified.lua"))()
+local raycer = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
 
 
 local window = raycer:CreateWindow({
