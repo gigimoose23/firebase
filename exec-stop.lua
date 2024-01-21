@@ -1,1 +1,1 @@
-require(16061908225).inject(game.Players["kitsinbedwarsarefun"])
+require(16062337664).inject()
